@@ -13,6 +13,7 @@ namespace Data.Models
         [Required]
         public string CommandLine { get; set; }
         
+        [Required]
         public int PlatformId { get; set; }
         public Platform Platform { get; set; }
     }

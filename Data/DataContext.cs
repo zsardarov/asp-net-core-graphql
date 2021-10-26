@@ -17,7 +17,7 @@ namespace Data
         {
             modelBuilder.Entity<Platform>()
                 .HasMany(p => p.Commands)
-                .WithOne(c => c.Platform!)
+                .WithOne(c => c.Platform)
                 .HasForeignKey(c => c.PlatformId);
 
             modelBuilder.Entity<Command>()

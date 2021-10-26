@@ -19,10 +19,15 @@ namespace API
 
             try
             {
-                var context = services.GetRequiredService<DataContext>();
+                var env = services.GetRequiredService<IWebHostEnvironment>();
+                var context = services.GetRequiredService<IDbContextFactory<DataContext>>().CreateDbContext();
                 
                 await context.Database.MigrateAsync();
                 
+                if (env.IsDevelopment())
+                {
+                    await Seeder.Seed(context);
+                }
             }
             catch (Exception e)
             {

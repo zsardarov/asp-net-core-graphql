@@ -13,7 +13,7 @@ namespace API.GraphQL.Platforms
             descriptor.Description("Represents software or service");
 
             descriptor.Field(d => d.Commands)
-                .ResolveWith<Resolver>(p => p.GetCommands(default!, default))
+                .ResolveWith<Resolver>(p => p.GetCommands(default, default))
                 .UseDbContext<DataContext>();
         }
 
